@@ -68,6 +68,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ten"
             android:textAppearance="?android:attr/textAppearanceMedium" />
+
     </TableRow>
     <Button
         android:id="@+id/restartExam"

@@ -7,10 +7,11 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/linearLayout"
+        android:layout_width="411dp"
+        android:layout_height="569dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,7 +23,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/numberRemainingText"
+                android:id="@+id/questionCounter"
                 android:layout_width="96dp"
                 android:layout_height="34dp"
                 android:layout_weight="1"
@@ -44,7 +45,7 @@
                     app:srcCompat="@drawable/clock" />
 
                 <TextView
-                    android:id="@+id/numberRemainingText2"
+                    android:id="@+id/remainingTimeText"
                     android:layout_width="96dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -54,12 +55,12 @@
             </LinearLayout>
 
             <TextView
-                android:id="@+id/numberRemainingText3"
+                android:id="@+id/pointText"
                 android:layout_width="96dp"
                 android:layout_height="34dp"
                 android:layout_weight="1"
                 android:gravity="right"
-                android:text="1/10"
+                android:text="450 Point"
                 android:textSize="24sp" />
 
         </LinearLayout>
@@ -83,5 +84,68 @@
             android:gravity="start|top"
             android:hint='"Questions will be shown in here ! "'
             android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="45dp"
+            android:text="A) " />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="B)" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="C)"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="D)"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="412dp"
+        android:layout_height="157dp"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="2dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#A6DA1E0D"
+            android:drawableBottom="@drawable/subjectsBig"
+            android:paddingBottom="10dp" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#AB2888A5"
+            android:drawableTop="@drawable/refreshicon"
+            android:gravity="center"
+            android:paddingTop="15dp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
