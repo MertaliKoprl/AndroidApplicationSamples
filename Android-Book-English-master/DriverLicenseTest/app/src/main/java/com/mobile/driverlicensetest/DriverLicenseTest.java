@@ -59,7 +59,7 @@ public class DriverLicenseTest extends Activity {
 	    } catch (IOException e) {
 	    }
 	}
-	
+
 	private Question getCurrentQuestion(){
 		int whichQuestion, i;
 		String questionType;
@@ -87,7 +87,7 @@ public class DriverLicenseTest extends Activity {
 		}
 		return null;
 	}
-	
+
 	private void showCurrentQuestion(){
 		Question currentQuestion;
 		currentQuestion = getCurrentQuestion();

@@ -8,6 +8,7 @@
         android:id="@+id/textView6"
         android:layout_width="match_parent"
         android:layout_height="61dp"
+        android:layout_marginBottom="15dp"
         android:gravity="center"
         android:text="Options"
         android:textColor="#C9363535"
@@ -125,6 +126,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
         android:orientation="horizontal">
 

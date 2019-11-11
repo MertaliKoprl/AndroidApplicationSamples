@@ -86,30 +86,34 @@
             android:inputType="textMultiLine" />
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/choiseA"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
+            android:onClick="answerSelected"
             android:text="A) " />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/choiseB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="answerSelected"
             android:text="B)" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/choiseC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="answerSelected"
             android:text="C)"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/choiseD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:onClick="answerSelected"
             android:text="D)"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -136,6 +140,7 @@
             android:layout_weight="1"
             android:background="#A6DA1E0D"
             android:drawableBottom="@drawable/subjectsBig"
+            android:onClick="optionsSelected"
             android:paddingBottom="10dp" />
 
         <Button
