@@ -10,35 +10,38 @@
         android:layout_height="61dp"
         android:layout_marginBottom="15dp"
         android:gravity="center"
-        android:text="Options"
+        android:text="@string/options"
         android:textColor="#C9363535"
         android:textSize="30sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:gravity="center"
         android:orientation="horizontal">
 
         <CheckBox
-            android:id="@+id/checkBox4"
+            android:id="@+id/historyCheckBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="History" />
+            android:tag="1"
+            android:text="@string/history" />
 
         <SeekBar
-            android:id="@+id/seekBar5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/historySeekBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="10" />
+            android:tag="1" />
+
+        <TextView
+            android:id="@+id/historyCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_10" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,24 +51,29 @@
         android:orientation="horizontal">
 
         <CheckBox
-            android:id="@+id/checkBox5"
+            android:id="@+id/actionCheckBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Action" />
+            android:clickable="true"
+            android:duplicateParentState="false"
+            android:focusable="true"
+            android:tag="2"
+            android:text="@string/action" />
 
         <SeekBar
-            android:id="@+id/seekBar4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/textView5"
+            android:id="@+id/actionSeekBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="10" />
+            android:tag="2" />
+
+        <TextView
+            android:id="@+id/actionCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/_10" />
     </LinearLayout>
 
     <LinearLayout
@@ -76,93 +84,43 @@
         android:orientation="horizontal">
 
         <CheckBox
-            android:id="@+id/checkBox"
+            android:id="@+id/sciFiCheckBox"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Sci-Fi" />
+            android:clickable="true"
+            android:focusable="true"
+            android:tag="3"
+            android:text="@string/sci_fi" />
 
         <SeekBar
-            android:id="@+id/seekBar"
+            android:id="@+id/sciFiSeekBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            android:layout_weight="1"
+            android:tag="3" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/sciFiCount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="10" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/checkBox2"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Comedy" />
-
-        <SeekBar
-            android:id="@+id/seekBar2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="10" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <CheckBox
-            android:id="@+id/checkBox3"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Horror" />
-
-        <SeekBar
-            android:id="@+id/seekBar3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="10" />
+            android:text="@string/_10" />
     </LinearLayout>
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/startNewExamBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
         android:background="#A6DA1E0D"
-        android:text="Start New Exam" />
+        android:text="@string/start_new_exam" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/goBackBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#AB2888A5"
-        android:text="Go Back" />
+        android:text="@string/go_back" />
 
 </LinearLayout>

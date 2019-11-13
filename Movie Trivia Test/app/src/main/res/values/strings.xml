@@ -1,3 +1,25 @@
 <resources>
     <string name="app_name">Movie Trivia Test</string>
+    <string name="username">username</string>
+    <string name="questions_will_be_shown_in_here">Questions will be shown in here !</string>
+    <string name="a">A)</string>
+    <string name="b">B)</string>
+    <string name="c">C)</string>
+    <string name="d">D)</string>
+    <string name="movie_trivia">Movie Trivia</string>
+    <string name="_00_52">00:52</string>
+    <string name="_1_10">1/10</string>
+    <string name="options">Options</string>
+    <string name="history">History</string>
+    <string name="_10">10</string>
+    <string name="action">Action</string>
+    <string name="_10">10</string>
+    <string name="sci_fi">Sci-Fi</string>
+    <string name="_10">10</string>
+    <string name="start_new_exam">Start New Exam</string>
+    <string name="go_back">Go Back</string>
+    <string name="movie_trivia">Movie Trivia</string>
+    <string name="start_game">Start Game</string>
+    <string name="put_your_nick_in_here">Put your nick in here</string>
+    <string name="nickname">Nickname :</string>
 </resources>
