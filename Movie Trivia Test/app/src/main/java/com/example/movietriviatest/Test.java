@@ -4,11 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import java.lang.Object;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -30,6 +31,7 @@ public class Test extends Activity {
     private int numberOfCorrectAnswers;
     private int questionNo;
     private TextView pointText;
+    private TextView remainingTimeText;
     private int correctAnswer;
     private TextView questionArea;
     private Button choiseA;
@@ -37,6 +39,7 @@ public class Test extends Activity {
     private Button choiseC;
     private Button choiseD;
     int points=0;
+    private int timeVariable=0;//It will change according to number of questions
     private Button restartBtn;
     private String userNameText;
 
@@ -58,6 +61,7 @@ public class Test extends Activity {
         choiseB.setOnClickListener(choiceClick);
         choiseC.setOnClickListener(choiceClick);
         choiseD.setOnClickListener(choiceClick);
+        remainingTimeText=(TextView) findViewById(R.id.remainingTimeText);
         Intent userNameIntent = getIntent();
         userNameText = (String) userNameIntent.getSerializableExtra("userName");
         userNameField.setText(userNameText);
@@ -65,6 +69,17 @@ public class Test extends Activity {
         readQuestionFile();
         readPreferences();
         startExam();
+        new CountDownTimer(timeVariable, 1000) {//70000=70 sec.
+
+            public void onTick(long millisUntilFinished) {
+                remainingTimeText.setText(String.valueOf(millisUntilFinished / 1000));
+            }
+
+            public void onFinish() {
+                remainingTimeText.setText("0");
+
+            }
+        }.start();
     }
 
     private void readPreferences() {
@@ -161,8 +176,9 @@ public class Test extends Activity {
             }
         }
         questionCounter.setText(questionNo+1+"/"+preferences.getTotalNumberOfQuestions());
-
+        timeVariable=preferences.getTotalNumberOfQuestions()*60000;//EVERY GUESSTION = MIN;
     }
+
 
 
     private void startExam() {
@@ -212,7 +228,7 @@ public class Test extends Activity {
                     Toast.makeText(getApplicationContext(),"Wrong , correct answer was D",Toast.LENGTH_LONG).show();
             }
             questionNo++;
-            if (questionNo < historyNumberQuestions + actionNumberQuestions + sciFiNumberQuestions){
+            if (questionNo < historyNumberQuestions + actionNumberQuestions + sciFiNumberQuestions&&!remainingTimeText.getText().toString().equals("0")){
                 showCurrentQuestion();
             } else {
                 String message = "You answered " + numberOfCorrectAnswers + " questions correctly!";
@@ -224,6 +240,7 @@ public class Test extends Activity {
             }
         }
     };
+
 
 
     public void optionsSelected(View view) {
@@ -239,6 +256,8 @@ public class Test extends Activity {
             startExam();
         }
     };
+
+
 
 
 }
