@@ -38,6 +38,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
-        android:text="@string/start_game" />
+        android:background="#7479C1"
+        android:text="@string/start_game"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/titleText2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:text="Default Values are 10 for each Category"
+        android:textSize="30sp" />
 
 </LinearLayout>

@@ -3,6 +3,7 @@ package com.example.movietriviatest;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
@@ -39,14 +40,20 @@ public class Test extends Activity {
     private Button choiseC;
     private Button choiseD;
     int points=0;
+    int pointsGettedBonus=0;
+    private int bonusCounter=0;
     private int timeVariable=0;//It will change according to number of questions
     private Button restartBtn;
     private String userNameText;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.tick);
+        mp.start();
         restartBtn= (Button) findViewById(R.id.restartBtn);
         questionCounter = (TextView) findViewById(R.id.questionCounter);
         userNameField = (TextView) findViewById(R.id.userNameField);
@@ -100,6 +107,24 @@ public class Test extends Activity {
                 readPreferences();
                 startExam();
             }
+        }
+        if(resultCode==123){
+            if(data!=null){
+                Bundle extras= data.getExtras();
+                pointsGettedBonus=extras.getInt("resultpoints");
+                if(pointsGettedBonus!=points){
+                    Toast.makeText(getApplicationContext(), "YEEEE , ITS TRUE", Toast.LENGTH_SHORT).show();
+                }else{
+
+                    Toast.makeText(getApplicationContext(), "Ahh Try next Time", Toast.LENGTH_LONG).show();
+
+                }
+                points=pointsGettedBonus;
+            }
+
+
+        pointText.setText(points+" Points");
+
         }
     }
 
@@ -215,6 +240,8 @@ public class Test extends Activity {
         public void onClick(View v){
             if (((String)v.getTag()).equalsIgnoreCase(Integer.toString(correctAnswer))){
                 points+=10;
+                bonusCounter++;
+
                 pointText.setText(points+" Points");
                 numberOfCorrectAnswers++;
             }else{
@@ -238,10 +265,19 @@ public class Test extends Activity {
                 choiseC.setEnabled(false);
                 choiseD.setEnabled(false);
             }
+            if(bonusCounter/2==1){
+                bonusCounter=0;
+                bonusQuestion();
+            }
         }
     };
 
+    public void bonusQuestion(){
+        Intent subjectsIntent = new Intent(Test.this, BonusQuet.class);
+        subjectsIntent.putExtra("points", points);
+        startActivityForResult(subjectsIntent, RESTART_EXAM);
 
+    }
 
     public void optionsSelected(View view) {
         Intent subjectsIntent = new Intent(Test.this, Subjects.class);
@@ -256,6 +292,8 @@ public class Test extends Activity {
             startExam();
         }
     };
+
+
 
 
 

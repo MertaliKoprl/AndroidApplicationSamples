@@ -54,10 +54,10 @@
 
                 <ImageView
                     android:id="@+id/clockImage"
-                    android:layout_width="82dp"
-                    android:layout_height="69dp"
+                    android:layout_width="75dp"
+                    android:layout_height="72dp"
                     android:layout_weight="0"
-                    app:srcCompat="@drawable/clock" />
+                    android:background="@drawable/clockss" />
 
                 <TextView
                     android:id="@+id/remainingTimeText"
@@ -105,25 +105,31 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="45dp"
+            android:background="#7479C1"
             android:onClick="answerSelected"
             android:tag="1"
-            android:text="@string/a" />
+            android:text="@string/a"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/choiseB"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#7479C1"
             android:onClick="answerSelected"
             android:tag="2"
-            android:text="@string/b" />
+            android:text="@string/b"
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/choiseC"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#7479C1"
             android:onClick="answerSelected"
             android:tag="3"
             android:text="@string/c"
+            android:textColor="#FFFFFF"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -131,9 +137,11 @@
             android:id="@+id/choiseD"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#7479C1"
             android:onClick="answerSelected"
             android:tag="4"
             android:text="@string/d"
+            android:textColor="#FFFFFF"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 

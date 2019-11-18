@@ -19,6 +19,9 @@
         <activity android:name=".Test">
 
         </activity>
+        <activity android:name=".BonusQuet">
+
+        </activity>
         <activity android:name=".Subjects"></activity>
 
     </application>

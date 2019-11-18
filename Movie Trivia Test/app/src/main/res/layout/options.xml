@@ -120,6 +120,7 @@
         android:id="@+id/goBackBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
         android:background="#AB2888A5"
         android:text="@string/go_back" />
 

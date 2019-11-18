@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="108dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="133dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/remainingTimeText"
+                android:layout_width="96dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:text="@string/_00_52"
+                android:textSize="24sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TitleText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:fontFamily="sans-serif-condensed-medium"
+        android:gravity="center"
+        android:text="BONUS QUESTION"
+        android:textSize="30sp" />
+
+    <EditText
+        android:id="@+id/questionArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:hint="@string/questions_will_be_shown_in_here"
+        android:inputType="textMultiLine"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/choiseA"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:background="#7497C1"
+        android:onClick="answerSelected"
+        android:tag="1"
+        android:text="@string/a"
+        android:textColor="#E2FFFFFF" />
+
+    <Button
+        android:id="@+id/choiseB"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#7497C1"
+        android:onClick="answerSelected"
+        android:tag="2"
+        android:text="@string/b"
+        android:textColor="#E2FFFFFF" />
+
+    <Button
+        android:id="@+id/choiseC"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#7497C1"
+        android:onClick="answerSelected"
+        android:tag="3"
+        android:text="@string/c"
+        android:textColor="#E2FFFFFF" />
+
+    <Button
+        android:id="@+id/choiseD"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:background="#7497C1"
+        android:onClick="answerSelected"
+        android:tag="4"
+        android:text="@string/d"
+        android:textColor="#E2FFFFFF" />
+
+
+</LinearLayout>
