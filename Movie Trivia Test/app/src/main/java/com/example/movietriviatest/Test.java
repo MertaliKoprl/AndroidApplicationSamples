@@ -31,6 +31,7 @@ public class Test extends Activity {
     private TextView questionCounter;
     private int numberOfCorrectAnswers;
     private int questionNo;
+    private Button guessBonusBtn;
     private TextView pointText;
     private TextView remainingTimeText;
     private int correctAnswer;
@@ -45,7 +46,7 @@ public class Test extends Activity {
     private int timeVariable=0;//It will change according to number of questions
     private Button restartBtn;
     private String userNameText;
-
+    private boolean isBonusActivated=false;
 
 
     @Override
@@ -54,6 +55,7 @@ public class Test extends Activity {
         setContentView(R.layout.activity_main);
         MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.tick);
         mp.start();
+        guessBonusBtn= (Button) findViewById(R.id.guessBonusBtn);
         restartBtn= (Button) findViewById(R.id.restartBtn);
         questionCounter = (TextView) findViewById(R.id.questionCounter);
         userNameField = (TextView) findViewById(R.id.userNameField);
@@ -126,6 +128,12 @@ public class Test extends Activity {
         pointText.setText(points+" Points");
 
         }
+    }
+    public void bonusActivated(View v){
+        isBonusActivated=true;
+        guessBonusBtn.setVisibility(View.INVISIBLE);
+
+
     }
 
     private void readQuestionFile() {
@@ -238,6 +246,7 @@ public class Test extends Activity {
 
     public View.OnClickListener choiceClick = new View.OnClickListener() {
         public void onClick(View v){
+
             if (((String)v.getTag()).equalsIgnoreCase(Integer.toString(correctAnswer))){
                 points+=10;
                 bonusCounter++;
@@ -245,6 +254,7 @@ public class Test extends Activity {
                 pointText.setText(points+" Points");
                 numberOfCorrectAnswers++;
             }else{
+                if(!isBonusActivated){
                 if(correctAnswer==1)
                 Toast.makeText(getApplicationContext(),"Wrong , correct answer was A",Toast.LENGTH_LONG).show();
                 else if(correctAnswer==2)
@@ -253,6 +263,13 @@ public class Test extends Activity {
                     Toast.makeText(getApplicationContext(),"Wrong , correct answer was C",Toast.LENGTH_LONG).show();
                 else if(correctAnswer==4)
                     Toast.makeText(getApplicationContext(),"Wrong , correct answer was D",Toast.LENGTH_LONG).show();
+            }
+                else{
+                    Toast.makeText(getApplicationContext(),"Wrong choise , try One more",Toast.LENGTH_LONG).show();
+                    isBonusActivated=false;
+                    return;
+
+                }
             }
             questionNo++;
             if (questionNo < historyNumberQuestions + actionNumberQuestions + sciFiNumberQuestions&&!remainingTimeText.getText().toString().equals("0")){
