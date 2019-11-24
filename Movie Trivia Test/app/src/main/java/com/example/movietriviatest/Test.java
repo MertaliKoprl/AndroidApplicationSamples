@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-import java.lang.Object;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -137,7 +137,7 @@ public class Test extends Activity {
     }
 
     private void readQuestionFile() {
-        InputStream stream = getResources().openRawResource(R.raw.ehliyet);
+        InputStream stream = getResources().openRawResource(R.raw.movie);
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream, Charset.forName("UTF-16")));
         Question newQuestion;
         String question;
@@ -215,7 +215,8 @@ public class Test extends Activity {
 
 
     private void startExam() {
-
+    isBonusActivated=false;
+    guessBonusBtn.setVisibility(View.VISIBLE);
         if (!preferences.getHistory()){
 
             historyNumberQuestions = 0;}

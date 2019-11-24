@@ -95,7 +95,7 @@ public class BonusQuet extends Activity {
     }
 
     private void readQuestionFile() {
-        InputStream stream = getResources().openRawResource(R.raw.ehliyet);
+        InputStream stream = getResources().openRawResource(R.raw.movie);
         BufferedReader reader = new BufferedReader(new InputStreamReader(stream, Charset.forName("UTF-16")));
         Question newQuestion;
         String question;
