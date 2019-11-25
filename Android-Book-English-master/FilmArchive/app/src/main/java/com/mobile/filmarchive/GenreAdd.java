@@ -1,5 +1,6 @@
 package com.mobile.filmarchive;
 
+import android.annotation.SuppressLint;
 import android.app.Fragment;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -27,7 +28,8 @@ public class GenreAdd extends Fragment{
     }
     
     AsyncTask<Object, Object, Object> AddGenreTask = new AsyncTask<Object, Object, Object>(){
-    	@Override
+    	@SuppressLint("WrongThread")
+		@Override
         protected Object doInBackground(Object... params){
     		FilmDatabase database = new FilmDatabase(context);
     		database.addGenre(name.getText().toString());
