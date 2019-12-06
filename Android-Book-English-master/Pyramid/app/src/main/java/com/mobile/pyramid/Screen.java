@@ -24,15 +24,15 @@ public class Screen extends View{
         Paint black = new Paint(), blue = new Paint(), text = new Paint();
         black.setColor(Color.BLACK);
         black.setStyle(Paint.Style.STROKE);
-        black.setStrokeWidth(1);
+        black.setStrokeWidth(6);
         blue.setColor(Color.BLUE);
         blue.setStyle(Paint.Style.STROKE);
-        blue.setStrokeWidth(3);
+        blue.setStrokeWidth(8);
         if (puzzle != null){
             for (int i = 0; i < puzzle.puzzleSize(); i++){
                 for (int j = 0; j <= i; j++){
                     x1 = (int) ((puzzle.puzzleSize() - i + 1 + 2 * j) * cellWidth / 2.0);
-                    y1 = (i + 1) * cellWidth;
+                    y1 = (i + 3) * cellWidth;
                     x2 = x1 + cellWidth;
                     y2 = y1 + cellWidth;
                     Rect area = new Rect(x1, y1, x2, y2);

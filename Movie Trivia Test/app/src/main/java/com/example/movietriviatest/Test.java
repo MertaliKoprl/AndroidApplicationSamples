@@ -22,6 +22,8 @@ import java.util.Collections;
 public class Test extends Activity {
 
     static final int RESTART_EXAM = 1;
+    int points = 0;
+    int pointsGettedBonus = 0;
     private ArrayList<Question> questions;
     private Preferences preferences;
     private int historyNumberQuestions;
@@ -40,14 +42,57 @@ public class Test extends Activity {
     private Button choiseB;
     private Button choiseC;
     private Button choiseD;
-    int points=0;
-    int pointsGettedBonus=0;
-    private int bonusCounter=0;
-    private int timeVariable=0;//It will change according to number of questions
+    private int bonusCounter = 0;
+    private int timeVariable = 0;//It will change according to number of questions
     private Button restartBtn;
     private String userNameText;
-    private boolean isBonusActivated=false;
+    private boolean isBonusActivated = false;
+    public View.OnClickListener choiceClick = new View.OnClickListener() {
+        public void onClick(View v) {
+            if (((String) v.getTag()).equalsIgnoreCase(Integer.toString(correctAnswer))) {
+                points += 10;
+                bonusCounter++;
+                pointText.setText(points + " Points");
+                numberOfCorrectAnswers++;
+            } else {
+                if (!isBonusActivated) {
+                    if (correctAnswer == 1)
+                        Toast.makeText(getApplicationContext(), "Wrong , correct answer was A", Toast.LENGTH_LONG).show();
+                    else if (correctAnswer == 2)
+                        Toast.makeText(getApplicationContext(), "Wrong , correct answer was B", Toast.LENGTH_LONG).show();
+                    else if (correctAnswer == 3)
+                        Toast.makeText(getApplicationContext(), "Wrong , correct answer was C", Toast.LENGTH_LONG).show();
+                    else if (correctAnswer == 4)
+                        Toast.makeText(getApplicationContext(), "Wrong , correct answer was D", Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Wrong choise , try One more", Toast.LENGTH_LONG).show();
+                    isBonusActivated = false;
+                    return;
 
+                }
+            }
+            questionNo++;
+            if (questionNo < historyNumberQuestions + actionNumberQuestions + sciFiNumberQuestions && !remainingTimeText.getText().toString().equals("0")) {
+                showCurrentQuestion();
+            } else {
+                String message = "You answered " + numberOfCorrectAnswers + " questions correctly!";
+                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+                choiseA.setEnabled(false);
+                choiseB.setEnabled(false);
+                choiseC.setEnabled(false);
+                choiseD.setEnabled(false);
+            }
+            if (bonusCounter / 2 == 1) {
+                bonusCounter = 0;
+                bonusQuestion();
+            }
+        }
+    };
+    public View.OnClickListener startExamClick = new View.OnClickListener() {
+        public void onClick(View v) {
+            startExam();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,12 +100,12 @@ public class Test extends Activity {
         setContentView(R.layout.activity_main);
         MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.tick);
         mp.start();
-        guessBonusBtn= (Button) findViewById(R.id.guessBonusBtn);
-        restartBtn= (Button) findViewById(R.id.restartBtn);
+        guessBonusBtn = (Button) findViewById(R.id.guessBonusBtn);
+        restartBtn = (Button) findViewById(R.id.restartBtn);
         questionCounter = (TextView) findViewById(R.id.questionCounter);
         userNameField = (TextView) findViewById(R.id.userNameField);
         questionArea = (TextView) findViewById(R.id.questionArea);
-        pointText=(TextView) findViewById(R.id.pointText);
+        pointText = (TextView) findViewById(R.id.pointText);
         questionArea.setEnabled(false);
         choiseA = (Button) findViewById(R.id.choiseA);
         choiseB = (Button) findViewById(R.id.choiseB);
@@ -70,7 +115,7 @@ public class Test extends Activity {
         choiseB.setOnClickListener(choiceClick);
         choiseC.setOnClickListener(choiceClick);
         choiseD.setOnClickListener(choiceClick);
-        remainingTimeText=(TextView) findViewById(R.id.remainingTimeText);
+        remainingTimeText = (TextView) findViewById(R.id.remainingTimeText);
         Intent userNameIntent = getIntent();
         userNameText = (String) userNameIntent.getSerializableExtra("userName");
         userNameField.setText(userNameText);
@@ -79,14 +124,11 @@ public class Test extends Activity {
         readPreferences();
         startExam();
         new CountDownTimer(timeVariable, 1000) {//70000=70 sec.
-
             public void onTick(long millisUntilFinished) {
                 remainingTimeText.setText(String.valueOf(millisUntilFinished / 1000));
             }
-
             public void onFinish() {
                 remainingTimeText.setText("0");
-
             }
         }.start();
     }
@@ -97,12 +139,12 @@ public class Test extends Activity {
                 basicPreferences.getBoolean("history", true),
                 basicPreferences.getBoolean("action", true),
                 basicPreferences.getBoolean("sciFi", true),
-
                 basicPreferences.getInt("historyNumberQuestions", 10),
                 basicPreferences.getInt("actionNumberQuestions", 10),
                 basicPreferences.getInt("sciFiNumberQuestions", 10));
 
     }
+
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == RESTART_EXAM) {
             if (resultCode == RESULT_OK) {
@@ -110,30 +152,25 @@ public class Test extends Activity {
                 startExam();
             }
         }
-        if(resultCode==123){
-            if(data!=null){
-                Bundle extras= data.getExtras();
-                pointsGettedBonus=extras.getInt("resultpoints");
-                if(pointsGettedBonus!=points){
+        if (resultCode == 123) {
+            if (data != null) {
+                Bundle extras = data.getExtras();
+                pointsGettedBonus = extras.getInt("resultpoints");
+                if (pointsGettedBonus != points) {
                     Toast.makeText(getApplicationContext(), "YEEEE , ITS TRUE", Toast.LENGTH_SHORT).show();
-                }else{
+                } else {
 
                     Toast.makeText(getApplicationContext(), "Ahh Try next Time", Toast.LENGTH_LONG).show();
-
                 }
-                points=pointsGettedBonus;
+                points = pointsGettedBonus;
             }
-
-
-        pointText.setText(points+" Points");
-
+            pointText.setText(points + " Points");
         }
     }
-    public void bonusActivated(View v){
-        isBonusActivated=true;
+
+    public void bonusActivated(View v) {
+        isBonusActivated = true;
         guessBonusBtn.setVisibility(View.INVISIBLE);
-
-
     }
 
     private void readQuestionFile() {
@@ -153,8 +190,6 @@ public class Test extends Activity {
             }
         } catch (IOException e) {
         }
-
-
     }
 
     private Question getCurrentQuestion() {// REVIEW !!!
@@ -208,30 +243,28 @@ public class Test extends Activity {
                 }
             }
         }
-        questionCounter.setText(questionNo+1+"/"+preferences.getTotalNumberOfQuestions());
-        timeVariable=preferences.getTotalNumberOfQuestions()*60000;//EVERY GUESSTION = MIN;
+        questionCounter.setText(questionNo + 1 + "/" + preferences.getTotalNumberOfQuestions());
+        timeVariable = preferences.getTotalNumberOfQuestions() * 60000;//EVERY GUESSTION = MIN;
     }
 
-
-
     private void startExam() {
-    isBonusActivated=false;
-    guessBonusBtn.setVisibility(View.VISIBLE);
-        if (!preferences.getHistory()){
+        isBonusActivated = false;
+        guessBonusBtn.setVisibility(View.VISIBLE);
+        if (!preferences.getHistory()) {
 
-            historyNumberQuestions = 0;}
-        else
+            historyNumberQuestions = 0;
+        } else
             historyNumberQuestions = preferences.getHistoryNumberQuestions();
-        if (!preferences.getAction()){
+        if (!preferences.getAction()) {
 
-            actionNumberQuestions = 0;}
-        else
+            actionNumberQuestions = 0;
+        } else
             actionNumberQuestions = preferences.getActionNumberQuestions();
         if (!preferences.getSciFi())
             sciFiNumberQuestions = 0;
         else
             sciFiNumberQuestions = preferences.getSciFiNumberQuestions();
-        this.points=0;
+        this.points = 0;
         pointText.setText("0 Points");
         questionNo = 0;
         numberOfCorrectAnswers = 0;
@@ -244,53 +277,7 @@ public class Test extends Activity {
         choiseD.setEnabled(true);
     }
 
-
-    public View.OnClickListener choiceClick = new View.OnClickListener() {
-        public void onClick(View v){
-
-            if (((String)v.getTag()).equalsIgnoreCase(Integer.toString(correctAnswer))){
-                points+=10;
-                bonusCounter++;
-
-                pointText.setText(points+" Points");
-                numberOfCorrectAnswers++;
-            }else{
-                if(!isBonusActivated){
-                if(correctAnswer==1)
-                Toast.makeText(getApplicationContext(),"Wrong , correct answer was A",Toast.LENGTH_LONG).show();
-                else if(correctAnswer==2)
-                    Toast.makeText(getApplicationContext(),"Wrong , correct answer was B",Toast.LENGTH_LONG).show();
-                else if(correctAnswer==3)
-                    Toast.makeText(getApplicationContext(),"Wrong , correct answer was C",Toast.LENGTH_LONG).show();
-                else if(correctAnswer==4)
-                    Toast.makeText(getApplicationContext(),"Wrong , correct answer was D",Toast.LENGTH_LONG).show();
-            }
-                else{
-                    Toast.makeText(getApplicationContext(),"Wrong choise , try One more",Toast.LENGTH_LONG).show();
-                    isBonusActivated=false;
-                    return;
-
-                }
-            }
-            questionNo++;
-            if (questionNo < historyNumberQuestions + actionNumberQuestions + sciFiNumberQuestions&&!remainingTimeText.getText().toString().equals("0")){
-                showCurrentQuestion();
-            } else {
-                String message = "You answered " + numberOfCorrectAnswers + " questions correctly!";
-                Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-                choiseA.setEnabled(false);
-                choiseB.setEnabled(false);
-                choiseC.setEnabled(false);
-                choiseD.setEnabled(false);
-            }
-            if(bonusCounter/2==1){
-                bonusCounter=0;
-                bonusQuestion();
-            }
-        }
-    };
-
-    public void bonusQuestion(){
+    public void bonusQuestion() {
         Intent subjectsIntent = new Intent(Test.this, BonusQuet.class);
         subjectsIntent.putExtra("points", points);
         startActivityForResult(subjectsIntent, RESTART_EXAM);
@@ -304,16 +291,6 @@ public class Test extends Activity {
 
 
     }
-    public View.OnClickListener startExamClick = new View.OnClickListener() {
-        public void onClick(View v){
-
-            startExam();
-        }
-    };
-
-
-
-
 
 
 }

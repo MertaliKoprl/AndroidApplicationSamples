@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Android-Book-English-master-Pyramid.iml" filepath="$PROJECT_DIR$/Android-Book-English-master-Pyramid.iml" />
       <module fileurl="file://$PROJECT_DIR$/Pyramid.iml" filepath="$PROJECT_DIR$/Pyramid.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/Pyramid-app.iml" filepath="$PROJECT_DIR$/app/Pyramid-app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

@@ -202,10 +202,6 @@ public class BonusQuet extends Activity {
         public void onClick(View v){
             if (((String)v.getTag()).equalsIgnoreCase(Integer.toString(correctAnswer))){
                 pointsGetted+=100;
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("resultpoints",pointsGetted);
-                setResult(123,resultIntent);
-                finish();
             }else{
                 if(correctAnswer==1)
                     Toast.makeText(getApplicationContext(),"Wrong , correct answer was A",Toast.LENGTH_LONG).show();
@@ -216,12 +212,13 @@ public class BonusQuet extends Activity {
                 else if(correctAnswer==4) {
                     Toast.makeText(getApplicationContext(), "Wrong , correct answer was D", Toast.LENGTH_LONG).show();
                 }
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("resultpoints",pointsGetted);
-                setResult(123,resultIntent);
-                finish();
             }
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("resultpoints",pointsGetted);
+            setResult(123,resultIntent);
             questionNo++;
+            finish();
+
 
         }
 

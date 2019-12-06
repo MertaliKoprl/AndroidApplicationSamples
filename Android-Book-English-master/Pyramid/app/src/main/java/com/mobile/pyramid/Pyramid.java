@@ -20,6 +20,7 @@ public class Pyramid extends Activity {
                 "134925548326192374564412375353491475182356918"};
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main_screen);
+
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         puzzles = new Puzzle[puzzleInformation.length];
         for (int i = 0; i < puzzleInformation.length; i++){

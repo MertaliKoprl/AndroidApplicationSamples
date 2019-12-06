@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">MemoryGameApp</string>
+    <string name="points">Points :</string>
+    <string name="_120_seconds">120</string>
+    <string name="textview">TextView</string>
+    <string name="cards">cards</string>
+    <string name="todo">TODO</string>
+    <string name="restart_game">Restart Game</string>
+    <string name="ofpoint">#ofPoint</string>
+    <string name ="tag0">0</string>
+    <string name ="tag1">1</string>
+    <string name ="tag2">2</string>
+    <string name ="tag3">3</string>
+    <string name ="tag4">4</string>
+    <string name ="tag5">5</string>
+    <string name ="tag6">6</string>
+    <string name ="tag7">7</string>
+    <string name ="tag8">8</string>
+    <string name ="tag9">9</string>
+    <string name ="tag10">10</string>
+    <string name ="tag11">11</string>
+    <string name ="tag12">12</string>
+    <string name ="tag13">13</string>
+    <string name ="tag14">14</string>
+    <string name ="tag15">15</string>
+    <string name ="tag16">16</string>
+    <string name ="tag17">17</string>
+    <string name ="tag18">18</string>
+    <string name ="tag19">19</string>
+    <string name="turn">Turn</string>
+    <string name="turnno">TurnNo</string>
+    <string name="remaining">Time :</string>
+    <string name="turn2">Turn :</string>
+
+
+</resources>

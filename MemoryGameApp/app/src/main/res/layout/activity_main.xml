@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="393dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="52dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/PointsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/points" />
+
+        <TextView
+            android:id="@+id/PointsLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_marginStart="3dp"
+            android:text="@string/ofpoint" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="@string/remaining" />
+
+        <TextView
+            android:id="@+id/timeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/_120_seconds" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="46dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginBottom="72dp"
+            android:text="@string/turn2" />
+
+        <TextView
+            android:id="@+id/turnNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/turnno" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/closetForRows"
+        android:layout_width="393dp"
+        android:layout_height="511dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <LinearLayout
+            android:id="@+id/firstRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/card11"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag0" />
+
+            <ImageView
+                android:id="@+id/card12"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag1" />
+
+            <ImageView
+                android:id="@+id/card13"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag2" />
+
+            <ImageView
+                android:id="@+id/card14"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/secondRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/card21"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag4" />
+
+            <ImageView
+                android:id="@+id/card22"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag5" />
+
+            <ImageView
+                android:id="@+id/card23"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag6" />
+
+            <ImageView
+                android:id="@+id/card24"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag7" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/thirdRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/card31"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag8" />
+
+            <ImageView
+                android:id="@+id/card32"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag9" />
+
+            <ImageView
+                android:id="@+id/card33"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag10" />
+
+            <ImageView
+                android:id="@+id/card34"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag11" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fourthRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/card41"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag12" />
+
+            <ImageView
+                android:id="@+id/card42"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag13" />
+
+            <ImageView
+                android:id="@+id/card43"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginEnd="1dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag14" />
+
+            <ImageView
+                android:id="@+id/card44"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag15" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/fifthRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/card51"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag16" />
+
+            <ImageView
+                android:id="@+id/card52"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag17" />
+
+            <ImageView
+                android:id="@+id/card53"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_marginEnd="1dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag18" />
+
+            <ImageView
+                android:id="@+id/card54"
+                android:layout_width="1dp"
+                android:layout_height="100dp"
+                android:layout_weight="1"
+                android:background="@drawable/border"
+                android:contentDescription="@string/todo"
+                android:onClick="revealCard"
+                android:tag="@string/tag19" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
