@@ -10,6 +10,7 @@ public class Pyramid extends Activity {
     private Puzzle[] puzzles;
     private Screen screen;
 
+
     protected void onCreate(Bundle savedInstanceState) {
         Random random = new Random();
         String[] puzzleInformation = {"443252145336141522663", "234524435626143614625",
@@ -27,6 +28,8 @@ public class Pyramid extends Activity {
             puzzles[i] = new Puzzle(puzzleInformation[i]);
         }
         screen = (Screen) findViewById(R.id.screen);
+
+
         screen.puzzle = puzzles[random.nextInt(puzzleInformation.length)];
         screen.cellWidth = displayMetrics.widthPixels / (screen.puzzle.puzzleSize() + 2);
     }

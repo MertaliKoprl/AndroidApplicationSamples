@@ -3,8 +3,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Pyramid" >
-    <com.mobile.pyramid.Screen
-        android:id="@+id/screen"
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <com.mobile.pyramid.Screen2
+            android:id="@+id/screen2"
+            android:layout_width="409dp"
+            android:layout_height="325dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginBottom="6dp" />
+
+        <com.mobile.pyramid.Screen
+            android:id="@+id/screen"
+            android:layout_width="match_parent"
+            android:layout_height="339dp" />
+
+    </LinearLayout>
+
+
 </RelativeLayout>

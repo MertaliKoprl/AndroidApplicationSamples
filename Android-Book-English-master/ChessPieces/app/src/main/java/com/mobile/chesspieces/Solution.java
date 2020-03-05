@@ -58,7 +58,7 @@ public class Solution {
 	            }
 	        }
 	        if (!found){
-	            candidawte.add(possiblePiece);
+	            candidate.add(possiblePiece);
 	        }
 	    }
 	    return candidate;
