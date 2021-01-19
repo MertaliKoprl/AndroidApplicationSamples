@@ -9,7 +9,7 @@ public class Ball {
 	private int radius;
 
 	public Ball(int paddleX, int paddleY, int screenWidth){
-	    speed = new Point((int)(-screenWidth / 50.0), (int)(-screenWidth / 50.0));
+	    speed = new Point((int)(-screenWidth / 300.0), (int)(-screenWidth / 300.0));
 	    radius = screenWidth / 50;
 	    center = new Point(paddleX + radius, paddleY - radius);
 	}
