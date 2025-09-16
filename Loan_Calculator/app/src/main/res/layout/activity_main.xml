@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@drawable/border"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:id="@+id/FirstColumn"
+
+            android:layout_width="205dp"
+            android:layout_height="559dp"
+            android:layout_marginTop="3dp"
+            android:background="@color/background"
+            android:forceDarkAllowed="false"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:theme="@style/BackGround">
+
+            <TextView
+                android:id="@+id/loanLabel"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="@string/loan_amount"
+                android:textSize="30sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/loanAmountInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:hint="@string/Unit"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/loanYears"
+                android:layout_width="match_parent"
+                android:layout_height="42dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="@string/loan_term"
+                android:textSize="30sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/loanTermInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:ems="10"
+                android:hint="@string/write_in_year"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal" />
+
+            <TextView
+                android:id="@+id/interestRateLabel"
+                android:layout_width="match_parent"
+                android:layout_height="74dp"
+                android:fontFamily="sans-serif-condensed-medium"
+                android:text="@string/annual_interest_rate"
+                android:textSize="30sp"
+                android:textStyle="normal" />
+
+            <EditText
+                android:id="@+id/interestRate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/Percentage"
+                android:importantForAutofill="no"
+                android:inputType="numberDecimal" />
+
+            <Button
+                android:id="@+id/buttonCalculate"
+                android:layout_width="179dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@color/colorPrimaryDark"
+                android:onClick="CalculatePayment"
+                android:text="@string/calculate"
+                android:textColor="@color/background" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/SecondColumn"
+            android:layout_width="match_parent"
+            android:layout_height="554dp"
+            android:layout_marginStart="3dp"
+            android:background="@drawable/border"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/LabelTerm"
+                android:layout_width="match_parent"
+                android:layout_height="61dp"
+                android:fontFamily="sans-serif"
+                android:gravity="center"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/monthlyLabel"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:layout_marginTop="0dp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:text="@string/monthly_payments"
+                android:textSize="18sp" />
+
+            <TableRow
+                android:id="@+id/tableRow"
+                android:layout_width="match_parent"
+                android:layout_height="74dp">
+
+                <TextView
+                    android:id="@+id/unitLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="@string/Unit"
+                    android:textSize="36sp" />
+
+                <TextView
+                    android:id="@+id/resultMonthly"
+                    android:layout_width="143dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:text="@string/Initial"
+                    android:textSize="36sp" />
+            </TableRow>
+
+            <TextView
+                android:id="@+id/TotalInterestLabel"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:text="@string/total_interest"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tableRow" />
+
+            <TextView
+                android:id="@+id/totalInterest"
+                android:layout_width="204dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:paddingStart="0dp"
+                android:paddingEnd="0dp"
+                android:text="@string/Initial"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/TotalLoanLabel"
+                android:layout_width="match_parent"
+                android:layout_height="37dp"
+                android:fontFamily="monospace"
+                android:gravity="center"
+                android:text="@string/total_loan"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/totalLoanText"
+                android:layout_width="204dp"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="@string/Initial"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
